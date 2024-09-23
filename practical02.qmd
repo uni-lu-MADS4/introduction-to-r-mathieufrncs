@@ -13,7 +13,7 @@ format: html
 c("A", "B", "C")
 
 ```
-> Create a vector with "A", "B", "C" using c()
+> Created a vector with "A", "B", "C" using c()
 
 
 
@@ -40,7 +40,7 @@ c(my_letters , my_letters)
 
 ```
 
-> It outputs a vector with the letters A, B, C, A, B, C.
+> It outputs a new vector with the two vectors next to each other, i.e. A, B, C, A, B, C.
 
 
 
@@ -51,7 +51,7 @@ letters + 1
 
 ```
 
-> It outputs an error: "non-numeric argument to binary operator".
+> Nothing happens to the type, it outputs an error: "non-numeric argument to binary operator".
 
 
 
@@ -126,7 +126,6 @@ t(A)
 8. Are any values in `A` larger than 10? 
 ```{r}
 A > 10
-
 ```
 
 9. Are all values in `A` smaller than 10?
