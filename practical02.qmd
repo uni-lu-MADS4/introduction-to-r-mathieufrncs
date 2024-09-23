@@ -46,6 +46,8 @@ c(my_letters , my_letters)
 
 * Add the number 1 to letters. What happens to the type of the vector?
 ```{r}
+#| error: true
+
 letters + 1
 
 
