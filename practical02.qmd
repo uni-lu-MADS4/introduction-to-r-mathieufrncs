@@ -1,7 +1,7 @@
 ---
 title: "Getting started with R"
-author: Your name here
-date: today
+author: Mathieu François
+date: "23/09/2024"
 format: html
 ---
 
@@ -10,49 +10,48 @@ format: html
 * Create a vector of the letters A, B and C.
 
 ```{r}
-# Your answer in code
+c("A", "B", "C")
 
 ```
-> Your answer as text
+> Create a vector with "A", "B", "C" using c()
 
 
 
 * Assign the vector to a variable `my_letters`
 ```{r}
-# Your answer in code
+my_letters <- c("A", "B", "C")
 
 ```
 
 
 * Check the what happens when you run `letters` (just this) on the command line.
 ```{r}
-# Your answer in code
-
+letters
 ```
 
-> Your answer as text
+> It prints all the lowercase letters from a to z.
 
 
 
 * What happens when you concatenate two vectors? Add `c(my_letters , my_letters)`
 ```{r}
-# Your answer in code
+c(my_letters , my_letters)
 
 
 ```
 
-> Your answer as text
+> It outputs a vector with the letters A, B, C, A, B, C.
 
 
 
 * Add the number 1 to letters. What happens to the type of the vector?
 ```{r}
-# Your answer in code
+letters + 1
 
 
 ```
 
-> Your answer as text
+> It outputs an error: "non-numeric argument to binary operator".
 
 
 
@@ -64,14 +63,16 @@ format: html
 3. Add the vector containing 1, 2, 3, 4 to `my_vec`. What do you observe?
 
 ```{r}
-# Your answer in code
-
+my_vec <- 1:8
+my_vec + 2
+my_vec + c(1, 2, 3, 4)
 
 
 
 
 ```
-
+> +2 adds 2 to ech element of the vector.
+> the vector c(1, 2, 3, 4) is added following the recycling rule. (1+1, 2+2, 3+3, 4+4, 1+5, 2+6, 3+7, 4+8)
 
 
 ### Exercise 3
@@ -94,9 +95,27 @@ format: html
 7. Compute the transpose of `A`
 
 ```{r}
-# Your answer in code
+# 1. 
+matrix(c(4, 9, 10, 1, 5, 7), nrow = 3, ncol = 2)
 
+# 2.
+A <- matrix(c(4, 9, 10, 1, 5, 7), nrow = 3, ncol = 2)
 
+# 3.
+dim(A)
+
+# 4.
+A[2, 2]
+
+# 5.
+A <- cbind(A, c(0, 0, 0))
+A
+
+# 6.
+A[1, 1] <- 0
+
+# 7.
+t(A)
 
 
 
@@ -106,13 +125,13 @@ format: html
 
 8. Are any values in `A` larger than 10? 
 ```{r}
-# Your answer in code
+A > 10
 
 ```
 
 9. Are all values in `A` smaller than 10?
 ```{r}
-# Your answer in code
+A < 10
 
 ```
 
@@ -121,10 +140,12 @@ format: html
 1. Create a function that sums up two values even if provided as characters values
 
 ```{r}
-# Your answer in code
+sum_values <- function(x, y){
+  as.numeric(x) + as.numeric(y)
+}
 
 
-
+sum_values("12", 2)
 
 
 ```
@@ -135,9 +156,14 @@ format: html
 1. Create a function that returns the mean, median and standard deviation.
 
 ```{r}
-# Your answer in code
+return_mean_median_sd <- function(x){
+  mean_x <- mean(x)
+  median_x <- median(x)
+  sd_x <- sd(x)
+  return(data.frame(mean = mean_x, median = median_x, sd = sd_x))
+}
 
-
+return_mean_median_sd(1:10)
 
 ```
 
@@ -147,7 +173,7 @@ format: html
 The output of `c('1' , "a", NA, "2", NA)` should be 2.
 
 ```{r}
-# Your answer in code
+c('1' , "a", NA, "2", NA) |> is.na() |> sum()
 
 
 
